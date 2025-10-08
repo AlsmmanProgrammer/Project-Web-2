@@ -71,7 +71,7 @@ $cat_result = $conn->query($cat_sql);
     <div class="container">
       <!-- Logo -->
       <a class="navbar-brand d-flex align-items-center" href="index.php">
-        <img src="assets/img/logo.png" alt="logo" style="height:45px; margin-inline-end:8px;">
+        <img src="assets/img/logo.svg" alt="logo" style="height:45px; margin-inline-end:8px;">
       </a>
 
       <!-- Toggler for mobile -->
@@ -221,7 +221,7 @@ $cat_result = $conn->query($cat_sql);
         <!-- Logo & Description -->
         <div class="col-md-4 text-center text-md-start">
           <a href="index.php" class="d-flex align-items-center mb-3 text-decoration-none text-light">
-            <img src="assets/img/logo.png" alt="logo" style="height:50px; margin-inline-end:10px;">
+            <img src="assets/img/logo.svg" alt="logo" style="height:50px; margin-inline-end:10px;">
           </a>
           <p class="small mb-0"><?php echo htmlspecialchars($lang['footer_desc']); ?></p>
         </div>
