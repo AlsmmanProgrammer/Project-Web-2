@@ -184,3 +184,65 @@ body.dark-mode .footer-bottom {
 
 
 
+.achievements {
+  background: linear-gradient(120deg, rgba(0,123,255,0.05), rgba(255,193,7,0.08));
+}
+
+.achievements .card-hover {
+  transition: all 0.3s ease;
+  border-radius: 14px;
+}
+
+.achievements .card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+/* ===== Achievements Section ===== */
+.achievements {
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.light-mode .achievements {
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+.dark-mode .achievements {
+  background-color: #1f1f1f;
+  color: #e0e0e0;
+}
+
+.achievement-card {
+  background: var(--card-bg, #fff);
+  transition: all 0.3s ease;
+  border-radius: 14px;
+}
+
+.light-mode .achievement-card {
+  background: #ffffff;
+  color: #333;
+}
+
+.dark-mode .achievement-card {
+  background: #2a2a2a;
+  color: #eee;
+}
+
+.achievement-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.achievement-icon {
+  color: var(--bs-secondary);
+}
+
+.achievement-text {
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+

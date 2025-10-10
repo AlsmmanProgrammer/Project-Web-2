@@ -213,6 +213,53 @@ $cat_result = $conn->query($cat_sql);
   <!-- SCROLL TO TOP -->
   <button id="scrollTopBtn" class="btn btn-secondary" title="Scroll to top" style="position:fixed;right:20px;bottom:20px;display:none;"><i class="fa-solid fa-arrow-up"></i></button>
 
+
+
+  <!-- ACHIEVEMENTS SECTION -->
+
+  <section class="achievements py-5">
+    <div class="container">
+      <h3 class="text-center fw-bold mb-5" data-aos="fade-up">
+        <?php echo htmlspecialchars($lang['achievements_title']); ?>
+      </h3>
+
+      <div class="row g-4 text-center">
+        <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="p-4 shadow-sm rounded card-hover achievement-card">
+            <i class="fa-solid fa-calendar-check fa-2x mb-3 achievement-icon"></i>
+            <h4 class="fw-bold mb-1">+120</h4>
+            <p class="achievement-text mb-0"><?php echo htmlspecialchars($lang['achievements_events']); ?></p>
+          </div>
+        </div>
+
+        <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+          <div class="p-4 shadow-sm rounded card-hover achievement-card">
+            <i class="fa-solid fa-users fa-2x mb-3 achievement-icon"></i>
+            <h4 class="fw-bold mb-1">+5,000</h4>
+            <p class="achievement-text mb-0"><?php echo htmlspecialchars($lang['achievements_participants']); ?></p>
+          </div>
+        </div>
+
+        <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+          <div class="p-4 shadow-sm rounded card-hover achievement-card">
+            <i class="fa-solid fa-city fa-2x mb-3 achievement-icon"></i>
+            <h4 class="fw-bold mb-1">15+</h4>
+            <p class="achievement-text mb-0"><?php echo htmlspecialchars($lang['achievements_cities']); ?></p>
+          </div>
+        </div>
+
+        <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
+          <div class="p-4 shadow-sm rounded card-hover achievement-card">
+            <i class="fa-solid fa-trophy fa-2x mb-3 achievement-icon"></i>
+            <h4 class="fw-bold mb-1">8</h4>
+            <p class="achievement-text mb-0"><?php echo htmlspecialchars($lang['achievements_awards']); ?></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <!-- FOOTER -->
   <footer class="footer mt-5 pt-5 pb-3 bg-dark text-light">
     <div class="container">

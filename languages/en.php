@@ -59,4 +59,13 @@ $lang = [
 
 
 
+
+  // Achievements Section
+  "achievements_title" => "Our Achievements",
+  "achievements_events" => "Events Organized",
+  "achievements_participants" => "Participants",
+  "achievements_cities" => "Cities Covered",
+  "achievements_awards" => "Awards Won",
+
+
 ];

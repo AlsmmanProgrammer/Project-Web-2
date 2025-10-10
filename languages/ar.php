@@ -57,4 +57,13 @@ $lang = [
 
 
 
+  // قسم الإنجازات
+  "achievements_title" => "إنجازاتنا",
+  "achievements_events" => "فعالية نُظمت",
+  "achievements_participants" => "مشارك",
+  "achievements_cities" => "مدن حول العالم",
+  "achievements_awards" => "جوائز حصلنا عليها",
+
+
+
 ];
