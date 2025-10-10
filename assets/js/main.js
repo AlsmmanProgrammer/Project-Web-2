@@ -98,5 +98,30 @@ if (scrollBtn) {
 
 
 
+// ===========================
+// CONTACT US  PAGE INTERACTIONS
+// ===========================
+
+
+AOS.init({ duration: 700, once: true });
+
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const btn = this.querySelector("button");
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+  
+  setTimeout(() => {
+    alert("✅ Message sent successfully!");
+    this.reset();
+    btn.disabled = false;
+    btn.innerHTML = "Send";
+  }, 1500);
+});
+
+
+
+
+
 
 
