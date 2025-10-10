@@ -31,4 +31,16 @@ $lang = [
   "footer_contact" => "Contact",
   "footer_contact_title" => "Contact Us",
   "footer_rights" => "All rights reserved",
+
+
+
+  // About Page
+  "about_title" => "About Us",
+  "about_subtitle" => "Learn about our mission and team dedicated to bringing amazing events to your city.",
+  "about_vision" => "Our Vision & Mission",
+  "about_vision_text1" => "We aim to build a platform that connects people to great events, supporting organizers and making event discovery easier, faster, and more enjoyable.",
+  "about_vision_text2" => "We believe in the power of connection, creativity, and diversity to build a vibrant community full of opportunities.",
+  "about_team" => "Our Team",
+
+
 ];

@@ -73,3 +73,30 @@ if (langToggle && langIcon) {
 
 
 
+
+// ===========================
+// ABOUT PAGE INTERACTIONS
+// ===========================
+
+// Initialize AOS animations
+AOS.init({
+  duration: 700,
+  once: true
+});
+
+// Smooth scroll to top (if you want)
+const scrollBtn = document.getElementById("scrollTopBtn");
+if (scrollBtn) {
+  window.addEventListener("scroll", () => {
+    scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
+  });
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
+
+
+
+
+
