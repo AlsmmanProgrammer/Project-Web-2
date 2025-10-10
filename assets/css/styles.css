@@ -5,10 +5,12 @@
   --card: #fff;
   --muted: #6c757d;
 }
+
 body.light-mode {
   background: var(--bg);
   color: var(--text);
 }
+
 body.dark-mode {
   --bg: #0f1720;
   --text: #e6eef6;
@@ -17,18 +19,40 @@ body.dark-mode {
   background: var(--bg);
   color: var(--text);
 }
-.navbar { transition: background .3s ease; }
-.hero img { transition: transform .45s ease; }
-.hero img:hover { transform: scale(1.02); }
+
+.navbar {
+  transition: background .3s ease;
+}
+
+.hero img {
+  transition: transform .45s ease;
+}
+
+.hero img:hover {
+  transform: scale(1.02);
+}
 
 /* Card styling */
-.card { transition: transform .25s ease, box-shadow .25s ease; border: none; background: var(--card); color: inherit; }
-.card .badge { font-size: 0.75rem; }
+.card {
+  transition: transform .25s ease, box-shadow .25s ease;
+  border: none;
+  background: var(--card);
+  color: inherit;
+}
+
+.card .badge {
+  font-size: 0.75rem;
+}
 
 /* Small responsive adjustments */
 @media (max-width: 768px) {
-  .hero { padding: 40px 0; }
-  .card .card-body { padding: 12px; }
+  .hero {
+    padding: 40px 0;
+  }
+
+  .card .card-body {
+    padding: 12px;
+  }
 }
 
 
@@ -37,10 +61,12 @@ body.dark-mode {
   font-weight: 500;
   transition: color 0.3s ease;
 }
-.navbar .nav-link:hover, 
+
+.navbar .nav-link:hover,
 .navbar .nav-link.active {
   color: var(--bs-primary);
 }
+
 .btn.rounded-circle {
   width: 36px;
   height: 36px;
@@ -53,6 +79,7 @@ body.dark-mode {
 .footer {
   transition: background 0.4s ease, color 0.4s ease;
 }
+
 .footer-link {
   color: #bbb;
   text-decoration: none;
@@ -60,23 +87,28 @@ body.dark-mode {
   margin: 4px 0;
   transition: color 0.3s ease;
 }
+
 .footer-link:hover {
   color: var(--bs-primary);
   text-decoration: underline;
 }
+
 .social-icon {
   color: #bbb;
   font-size: 1.1rem;
   transition: color 0.3s ease, transform 0.3s ease;
 }
+
 .social-icon:hover {
   color: var(--bs-primary);
   transform: translateY(-3px);
 }
+
 body.dark-mode .footer {
   background: #0f1720;
   color: #e6eef6;
 }
+
 body.light-mode .footer {
   background: #f8f9fa;
   color: #212529;
@@ -88,11 +120,13 @@ body.light-mode .footer {
   margin-top: 10px;
   transition: color 0.3s ease;
 }
+
 body.light-mode .footer-bottom {
   color: #6c757d;
 }
+
 body.dark-mode .footer-bottom {
-  color: #e0e0e0; 
+  color: #e0e0e0;
 }
 
 /* ===========================
@@ -100,7 +134,7 @@ body.dark-mode .footer-bottom {
    =========================== */
 
 .about-hero {
-  background: linear-gradient(120deg, rgba(0,123,255,0.12), rgba(255,193,7,0.08));
+  background: linear-gradient(120deg, rgba(0, 123, 255, 0.12), rgba(255, 193, 7, 0.08));
   padding: 80px 0 60px;
   text-align: center;
 }
@@ -140,6 +174,7 @@ body.dark-mode .footer-bottom {
   .about-hero {
     padding: 60px 0;
   }
+
   .team-card img {
     height: 200px;
   }
@@ -185,7 +220,7 @@ body.dark-mode .footer-bottom {
 
 
 .achievements {
-  background: linear-gradient(120deg, rgba(0,123,255,0.05), rgba(255,193,7,0.08));
+  background: linear-gradient(120deg, rgba(0, 123, 255, 0.05), rgba(255, 193, 7, 0.08));
 }
 
 .achievements .card-hover {
@@ -245,4 +280,3 @@ body.dark-mode .footer-bottom {
   font-size: 0.95rem;
   opacity: 0.8;
 }
-

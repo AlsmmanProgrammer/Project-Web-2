@@ -1,6 +1,6 @@
 <?php
 $host = "localhost";
-$user = "root"; 
+$user = "root";
 $password = "";
 $db_name   = "bwp501_f24_homework";
 
@@ -10,4 +10,3 @@ if ($conn->connect_error) {
     die("Database connection failed: " . $conn->connect_error);
 }
 $conn->set_charset("utf8mb4");
-?>

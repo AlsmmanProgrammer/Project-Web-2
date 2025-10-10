@@ -44,16 +44,16 @@ $lang = [
 
 
   "contact_title" => "اتصل بنا",
-"contact_subtitle" => "تواصل معنا لأي استفسار أو تعاون محتمل.",
-"contact_info" => "معلومات التواصل",
-"contact_text" => "نحن سعداء بالتواصل معك في أي وقت.",
-"contact_address" => "دمشق، سوريا",
-"contact_form_title" => "أرسل رسالة",
-"contact_name" => "الاسم الكامل",
-"contact_email" => "البريد الإلكتروني",
-"contact_subject" => "الموضوع",
-"contact_message" => "الرسالة",
-"contact_send" => "إرسال",
+  "contact_subtitle" => "تواصل معنا لأي استفسار أو تعاون محتمل.",
+  "contact_info" => "معلومات التواصل",
+  "contact_text" => "نحن سعداء بالتواصل معك في أي وقت.",
+  "contact_address" => "دمشق، سوريا",
+  "contact_form_title" => "أرسل رسالة",
+  "contact_name" => "الاسم الكامل",
+  "contact_email" => "البريد الإلكتروني",
+  "contact_subject" => "الموضوع",
+  "contact_message" => "الرسالة",
+  "contact_send" => "إرسال",
 
 
 

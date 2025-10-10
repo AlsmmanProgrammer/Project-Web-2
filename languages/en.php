@@ -46,16 +46,16 @@ $lang = [
 
 
   "contact_title" => "Contact Us",
-"contact_subtitle" => "Reach out to us for inquiries or collaborations.",
-"contact_info" => "Contact Information",
-"contact_text" => "We’re happy to hear from you anytime.",
-"contact_address" => "Damascus, Syria",
-"contact_form_title" => "Send a Message",
-"contact_name" => "Full Name",
-"contact_email" => "Email",
-"contact_subject" => "Subject",
-"contact_message" => "Message",
-"contact_send" => "Send",
+  "contact_subtitle" => "Reach out to us for inquiries or collaborations.",
+  "contact_info" => "Contact Information",
+  "contact_text" => "We’re happy to hear from you anytime.",
+  "contact_address" => "Damascus, Syria",
+  "contact_form_title" => "Send a Message",
+  "contact_name" => "Full Name",
+  "contact_email" => "Email",
+  "contact_subject" => "Subject",
+  "contact_message" => "Message",
+  "contact_send" => "Send",
 
 
 
