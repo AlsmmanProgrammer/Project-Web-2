@@ -56,8 +56,8 @@ $result = $conn->query("SELECT * FROM events ORDER BY event_date DESC");
                             <td><?php echo htmlspecialchars($row['location']); ?></td>
                             <td><?php echo htmlspecialchars($row['category']); ?></td>
                             <td>
-                                <a href="events_edit.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
-                                <a href="events_delete.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('هل أنت متأكد من الحذف؟');"><i class="fa fa-trash"></i></a>
+                                <a href="event_edit.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
+                                <a href="event_delete.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('هل أنت متأكد من الحذف؟');"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     <?php endwhile; ?>
