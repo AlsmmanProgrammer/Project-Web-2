@@ -101,9 +101,10 @@ $cat_result = $conn->query($cat_sql);
           </button>
 
           <!-- Admin modal button -->
-          <button class="btn btn-secondary btn-sm px-3" data-bs-toggle="modal" data-bs-target="#adminModal">
+          <a href="admin/login.php" class="btn btn-secondary btn-sm px-3">
+            <i class="fa-solid fa-right-to-bracket me-1"></i>
             <?php echo htmlspecialchars($lang['nav_login']); ?>
-          </button>
+          </a>
         </div>
       </div>
     </div>
@@ -139,7 +140,7 @@ $cat_result = $conn->query($cat_sql);
             <div class="carousel-item <?php echo $first ? 'active' : ''; ?>">
               <div class="row g-0 align-items-center">
                 <div class="col-md-5">
-                  <img src="assets/img/<?php echo htmlspecialchars($f['image']); ?>" class="d-block w-100" alt="" style="height:300px;object-fit:cover;">
+                  <img src="assets/img/events/<?php echo htmlspecialchars($f['image']); ?>" class="d-block w-100" alt="" style="height:300px;object-fit:cover;">
                 </div>
                 <div class="col-md-7 p-4">
                   <h4><?php echo htmlspecialchars($f['title']); ?></h4>
@@ -191,7 +192,7 @@ $cat_result = $conn->query($cat_sql);
       <?php if ($latest_result && $latest_result->num_rows > 0): while ($e = $latest_result->fetch_assoc()): ?>
           <div class="col-md-3 mb-4 event-card" data-category="<?php echo htmlspecialchars($e['category']); ?>" data-aos="fade-up">
             <div class="card h-100 card-hover">
-              <img src="assets/img/<?php echo htmlspecialchars($e['image']); ?>" class="card-img-top" style="height:160px; object-fit:cover;" alt="">
+              <img src="assets/img/events/<?php echo htmlspecialchars($e['image']); ?>" class="card-img-top" style="height:160px; object-fit:cover;" alt="">
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title"><?php echo htmlspecialchars($e['title']); ?></h5>
                 <p class="card-text text-muted small"><?php echo htmlspecialchars($e['event_date']); ?> • <?php echo htmlspecialchars($e['location']); ?></p>

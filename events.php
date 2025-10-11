@@ -125,7 +125,7 @@ $cat_result = $conn->query($cat_sql);
       <?php if ($result && $result->num_rows > 0): while ($e = $result->fetch_assoc()): ?>
           <div class="col-md-4 mb-4 event-card" data-category="<?php echo htmlspecialchars($e['category']); ?>" data-aos="fade-up">
             <div class="card h-100 card-hover shadow-sm">
-              <img src="assets/img/<?php echo htmlspecialchars($e['image']); ?>" class="card-img-top" style="height:200px;object-fit:cover;" alt="">
+              <img src="assets/img/events/<?php echo htmlspecialchars($e['image']); ?>" class="card-img-top" style="height:200px;object-fit:cover;" alt="">
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title mb-2"><?php echo htmlspecialchars($e['title']); ?></h5>
                 <p class="text-muted small mb-1">
