@@ -1,4 +1,3 @@
-/* styles.css */
 :root {
   --bg: #ffffff;
   --text: #212529;
@@ -32,7 +31,6 @@ body.dark-mode {
   transform: scale(1.02);
 }
 
-/* Card styling */
 .card {
   transition: transform .25s ease, box-shadow .25s ease;
   border: none;
@@ -44,7 +42,6 @@ body.dark-mode {
   font-size: 0.75rem;
 }
 
-/* Small responsive adjustments */
 @media (max-width: 768px) {
   .hero {
     padding: 40px 0;
@@ -129,9 +126,7 @@ body.dark-mode .footer-bottom {
   color: #e0e0e0;
 }
 
-/* ===========================
-   ABOUT PAGE STYLES
-   =========================== */
+
 
 .about-hero {
   background: linear-gradient(120deg, rgba(0, 123, 255, 0.12), rgba(255, 193, 7, 0.08));
@@ -153,7 +148,6 @@ body.dark-mode .footer-bottom {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Footer adjustment */
 .footer-bottom {
   font-size: 0.9rem;
   margin-top: 10px;
@@ -169,7 +163,6 @@ body.dark-mode .footer-bottom {
   color: #e0e0e0;
 }
 
-/* Responsive fixes */
 @media (max-width: 768px) {
   .about-hero {
     padding: 60px 0;
@@ -181,9 +174,7 @@ body.dark-mode .footer-bottom {
 }
 
 
-/* ===========================
-   Contact us  PAGE STYLES
-   =========================== */
+
 
 .contact-hero {
   background: linear-gradient(120deg, rgba(0, 123, 255, 0.12), rgba(255, 193, 7, 0.08));
@@ -236,7 +227,6 @@ body.dark-mode .footer-bottom {
 
 
 
-/* ===== Achievements Section ===== */
 .achievements {
   transition: background 0.3s ease, color 0.3s ease;
 }

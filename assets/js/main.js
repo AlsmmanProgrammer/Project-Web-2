@@ -1,7 +1,5 @@
-// main.js
 
 document.addEventListener("DOMContentLoaded", function () {
-  // THEME: init from localStorage
   const body = document.body;
   const themeToggle = document.getElementById("themeToggle");
   const themeIcon = document.getElementById("themeIcon");
@@ -29,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // FILTER: by category buttons
   const filterBtns = document.querySelectorAll(".filter-btn");
   const eventCards = document.querySelectorAll(".event-card");
   filterBtns.forEach((btn) => {
@@ -46,7 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // SEARCH
   const searchInput = document.getElementById("searchInput");
   if (searchInput) {
     searchInput.addEventListener("input", () => {
@@ -64,7 +60,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// LANGUAGE ICON CHANGE
 const langToggle = document.getElementById("langToggle");
 const langIcon = document.getElementById("langIcon");
 if (langToggle && langIcon) {
@@ -75,17 +70,12 @@ if (langToggle && langIcon) {
   }
 }
 
-// ===========================
-// ABOUT PAGE INTERACTIONS
-// ===========================
 
-// Initialize AOS animations
 AOS.init({
   duration: 700,
   once: true,
 });
 
-// Smooth scroll to top (if you want)
 const scrollBtn = document.getElementById("scrollTopBtn");
 if (scrollBtn) {
   window.addEventListener("scroll", () => {
@@ -96,9 +86,6 @@ if (scrollBtn) {
   });
 }
 
-// ===========================
-// CONTACT US  PAGE INTERACTIONS
-// ===========================
 
 AOS.init({ duration: 700, once: true });
 

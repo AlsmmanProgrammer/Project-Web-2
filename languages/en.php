@@ -34,7 +34,6 @@ $lang = [
 
 
 
-  // About Page
   "about_title" => "About Us",
   "about_subtitle" => "Learn about our mission and team dedicated to bringing amazing events to your city.",
   "about_vision" => "Our Vision & Mission",
@@ -60,7 +59,6 @@ $lang = [
 
 
 
-  // Achievements Section
   "achievements_title" => "Our Achievements",
   "achievements_events" => "Events Organized",
   "achievements_participants" => "Participants",

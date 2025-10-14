@@ -23,9 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $location = $_POST["location"];
     $category = $_POST["category"];
     $event_date = $_POST["event_date"];
-    $image = $event["image"]; // الصورة القديمة كافتراضية
+    $image = $event["image"]; 
 
-    // تحديث الصورة إن تم رفع واحدة جديدة
     if (!empty($_FILES["image"]["name"])) {
         $upload_dir = "../assets/img/events/";
         if (!is_dir($upload_dir)) mkdir($upload_dir, 0777, true);
@@ -34,7 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $target_path = $upload_dir . $new_image;
 
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_path)) {
-            // حذف القديمة
             if (!empty($image) && file_exists($upload_dir . $image)) {
                 unlink($upload_dir . $image);
             }

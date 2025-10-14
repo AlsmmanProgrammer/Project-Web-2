@@ -14,17 +14,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $category = trim($_POST["category"]);
     $event_date = $_POST["event_date"];
 
-    // معالجة الصورة
     $upload_dir = "../assets/img/events/";
 
-    // إنشاء المجلد إذا ما كان موجود
     if (!is_dir($upload_dir)) {
         mkdir($upload_dir, 0777, true);
     }
 
     $image = "";
     if (!empty($_FILES["image"]["name"])) {
-        $image_name = time() . "_" . basename($_FILES["image"]["name"]); // اسم فريد
+        $image_name = time() . "_" . basename($_FILES["image"]["name"]);
         $target_path = $upload_dir . $image_name;
 
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_path)) {
@@ -32,7 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // إدخال البيانات في قاعدة البيانات
     $sql = "INSERT INTO events (title, description, location, category, event_date, image)
             VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);

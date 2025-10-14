@@ -1,9 +1,7 @@
 <?php
-// about.php
 include "config/lang_config.php";
 include "database/db.php";
 
-// إعداد روابط اللغة
 $toggle_lang = $lang_code === 'ar' ? 'en' : 'ar';
 $current_path = strtok($_SERVER["REQUEST_URI"], '?');
 $query = $_GET;
@@ -18,18 +16,15 @@ $lang_link = $current_path . '?' . http_build_query($query);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title><?php echo htmlspecialchars($lang['about_title']); ?> | <?php echo htmlspecialchars($lang['title']); ?></title>
 
-    <!-- Bootstrap / Font Awesome / AOS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <!-- CSS -->
     <link href="assets/css/styles.css" rel="stylesheet">
     <link href="assets/css/about.css" rel="stylesheet">
 </head>
 
 <body class="light-mode">
 
-    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.php">
@@ -68,7 +63,6 @@ $lang_link = $current_path . '?' . http_build_query($query);
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
     <section class="about-hero">
         <div class="container">
             <h1 class="fw-bold mb-3" data-aos="fade-up"><?php echo htmlspecialchars($lang['about_title']); ?></h1>
@@ -76,7 +70,6 @@ $lang_link = $current_path . '?' . http_build_query($query);
         </div>
     </section>
 
-    <!-- ABOUT CONTENT -->
     <section class="about-section py-5">
         <div class="container">
             <div class="row align-items-center gy-4">
@@ -92,7 +85,6 @@ $lang_link = $current_path . '?' . http_build_query($query);
         </div>
     </section>
 
-    <!-- TEAM SECTION -->
     <section class="py-5 bg-light">
         <div class="container">
             <h3 class="text-center fw-bold mb-5" data-aos="fade-up"><?php echo htmlspecialchars($lang['about_team']); ?></h3>
@@ -123,12 +115,10 @@ $lang_link = $current_path . '?' . http_build_query($query);
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="footer mt-5 pt-5 pb-3 bg-dark text-light">
         <div class="container">
             <div class="row gy-4">
 
-                <!-- Logo & Description -->
                 <div class="col-md-4 text-center text-md-start">
                     <a href="index.php" class="d-flex align-items-center mb-3 text-decoration-none text-light">
                         <img src="assets/img/logo.svg" alt="logo" style="height:50px; margin-inline-end:10px;">
@@ -136,7 +126,6 @@ $lang_link = $current_path . '?' . http_build_query($query);
                     <p class="small mb-0"><?php echo htmlspecialchars($lang['footer_desc']); ?></p>
                 </div>
 
-                <!-- Quick Links -->
                 <div class="col-md-4 text-center">
                     <h6 class="fw-bold mb-3"><?php echo htmlspecialchars($lang['footer_quick_links']); ?></h6>
                     <ul class="list-unstyled">
@@ -147,7 +136,6 @@ $lang_link = $current_path . '?' . http_build_query($query);
                     </ul>
                 </div>
 
-                <!-- Contact & Social -->
                 <div class="col-md-4 text-center text-md-end">
                     <h6 class="fw-bold mb-3"><?php echo htmlspecialchars($lang['footer_contact_title']); ?></h6>
                     <p class="small mb-1">
@@ -170,7 +158,6 @@ $lang_link = $current_path . '?' . http_build_query($query);
         </div>
     </footer>
 
-    <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="assets/js/main.js"></script>

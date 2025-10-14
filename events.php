@@ -1,26 +1,21 @@
 <?php
-// events.php
 include "config/lang_config.php";
 include "database/db.php";
 
-// تحديد اللغة الحالية
 $toggle_lang = $lang_code === 'ar' ? 'en' : 'ar';
 $current_path = strtok($_SERVER["REQUEST_URI"], '?');
 $query = $_GET;
 $query['lang'] = $toggle_lang;
 $lang_link = $current_path . '?' . http_build_query($query);
 
-// اليوم الحالي
 $today = date('Y-m-d');
 
-// جلب جميع الفعاليات القادمة
 $sql = "SELECT * FROM events WHERE event_date >= ? ORDER BY event_date ASC";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $today);
 $stmt->execute();
 $result = $stmt->get_result();
 
-// جلب التصنيفات (للفلترة)
 $cat_sql = "SELECT DISTINCT category FROM events";
 $cat_result = $conn->query($cat_sql);
 ?>
@@ -32,7 +27,6 @@ $cat_result = $conn->query($cat_sql);
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title><?php echo htmlspecialchars($lang['nav_events']); ?> | <?php echo htmlspecialchars($lang['title']); ?></title>
 
-  <!-- Bootstrap / Font Awesome / AOS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
@@ -54,7 +48,6 @@ $cat_result = $conn->query($cat_sql);
 
 <body class="light-mode">
 
-  <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
     <div class="container">
       <!-- Logo -->
@@ -96,7 +89,7 @@ $cat_result = $conn->query($cat_sql);
       </div>
     </div>
   </nav>
-  <!-- HERO -->
+
   <section class="event-hero">
     <div class="container">
       <h1 class="fw-bold mb-3" data-aos="fade-up"><?php echo htmlspecialchars($lang['nav_events']); ?></h1>
@@ -106,7 +99,6 @@ $cat_result = $conn->query($cat_sql);
     </div>
   </section>
 
-  <!-- FILTER BUTTONS -->
   <div class="container my-4 text-center" data-aos="fade-up">
     <div class="d-flex flex-wrap justify-content-center gap-2">
       <button class="btn btn-outline-secondary btn-sm filter-btn active" data-cat="all"><?php echo ($lang_code == 'ar') ? 'الكل' : 'All'; ?></button>
@@ -119,7 +111,6 @@ $cat_result = $conn->query($cat_sql);
     </div>
   </div>
 
-  <!-- EVENTS GRID -->
   <div class="container my-5">
     <div class="row" id="eventsGrid">
       <?php if ($result && $result->num_rows > 0): while ($e = $result->fetch_assoc()): ?>
@@ -149,7 +140,6 @@ $cat_result = $conn->query($cat_sql);
     </div>
   </div>
 
-  <!-- FOOTER -->
   <footer class="footer mt-5 pt-5 pb-3 bg-dark text-light">
     <div class="container">
       <div class="row gy-4">
@@ -196,7 +186,6 @@ $cat_result = $conn->query($cat_sql);
     </div>
   </footer>
 
-  <!-- JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
@@ -207,7 +196,6 @@ $cat_result = $conn->query($cat_sql);
       once: true
     });
 
-    // تصفية الفعاليات حسب التصنيف
     $('.filter-btn').on('click', function() {
       const category = $(this).data('cat');
       $('.filter-btn').removeClass('active');

@@ -33,7 +33,6 @@ $lang = [
 
 
 
-  // صفحة من نحن
   "about_title" => "من نحن",
   "about_subtitle" => "تعرف على فريقنا ورسالتنا في تنظيم الفعاليات وإبراز الإبداع في مدينتك.",
   "about_vision" => "رؤيتنا ورسالتنا",
@@ -57,7 +56,6 @@ $lang = [
 
 
 
-  // قسم الإنجازات
   "achievements_title" => "إنجازاتنا",
   "achievements_events" => "فعالية نُظمت",
   "achievements_participants" => "مشارك",

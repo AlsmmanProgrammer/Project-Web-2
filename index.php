@@ -1,35 +1,28 @@
 <?php
-// index.php
 include "config/lang_config.php";
 include "database/db.php";
 
-// مسار الصفحة الحالية بدون query string
 $current_path = strtok($_SERVER["REQUEST_URI"], '?');
 
-// Toggle language link (يحافظ على باقي الـ GET params)
 $toggle_lang = $lang_code === 'ar' ? 'en' : 'ar';
 $query = $_GET;
 $query['lang'] = $toggle_lang;
 $lang_link = $current_path . '?' . http_build_query($query);
 
-// تاريخ اليوم لجلب الفعاليات القادمة
 $today = date('Y-m-d');
 
-// جلب فعاليات بارزة (3 قادمة)
 $featured_sql = "SELECT * FROM events WHERE event_date >= ? ORDER BY event_date ASC LIMIT 3";
 $stmt = $conn->prepare($featured_sql);
 $stmt->bind_param("s", $today);
 $stmt->execute();
 $featured_result = $stmt->get_result();
 
-// جلب أحدث 8 فعاليات قادمة
 $latest_sql = "SELECT * FROM events WHERE event_date >= ? ORDER BY event_date ASC LIMIT 8";
 $stmt2 = $conn->prepare($latest_sql);
 $stmt2->bind_param("s", $today);
 $stmt2->execute();
 $latest_result = $stmt2->get_result();
 
-// جلب قائمة التصنيفات المتاحة
 $cat_sql = "SELECT DISTINCT category FROM events";
 $cat_result = $conn->query($cat_sql);
 ?>
@@ -41,17 +34,13 @@ $cat_result = $conn->query($cat_sql);
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title><?php echo htmlspecialchars($lang['title']); ?></title>
 
-  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- AOS (Animate on Scroll) -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-  <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
   <link href="assets/css/styles.css" rel="stylesheet">
 
   <style>
-    /* small in-file adjustments */
     .hero {
       background: linear-gradient(120deg, rgba(0, 123, 255, 0.12), rgba(255, 193, 7, 0.08));
       padding: 80px 0;
@@ -66,20 +55,16 @@ $cat_result = $conn->query($cat_sql);
 
 <body class="light-mode">
 
-  <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
     <div class="container">
-      <!-- Logo -->
       <a class="navbar-brand d-flex align-items-center" href="index.php">
         <img src="assets/img/logo.svg" alt="logo" style="height:45px; margin-inline-end:8px;">
       </a>
 
-      <!-- Toggler for mobile -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <!-- Menu items -->
       <div class="collapse navbar-collapse" id="navMenu">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
           <li class="nav-item"><a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>" href="index.php"><?php echo htmlspecialchars($lang['nav_home']); ?></a></li>
@@ -112,7 +97,6 @@ $cat_result = $conn->query($cat_sql);
 
 
 
-  <!-- HERO -->
   <section class="hero">
     <div class="container">
       <div class="row align-items-center gy-4">
@@ -128,7 +112,6 @@ $cat_result = $conn->query($cat_sql);
     </div>
   </section>
 
-  <!-- FEATURED CAROUSEL -->
   <div class="container my-5">
     <h3 class="mb-3" data-aos="fade-up"><?php echo htmlspecialchars($lang['featured']); ?></h3>
 
@@ -165,7 +148,6 @@ $cat_result = $conn->query($cat_sql);
     <?php endif; ?>
   </div>
 
-  <!-- CATEGORIES -->
   <div class="container my-4" data-aos="fade-up">
     <div class="d-flex align-items-center justify-content-between mb-3">
       <h4><?php echo htmlspecialchars($lang['categories']); ?></h4>
@@ -184,7 +166,6 @@ $cat_result = $conn->query($cat_sql);
     </div>
   </div>
 
-  <!-- LATEST EVENTS GRID -->
   <div class="container my-5">
     <h4 class="mb-3" data-aos="fade-up"><?php echo htmlspecialchars($lang['latest']); ?></h4>
 
@@ -211,12 +192,10 @@ $cat_result = $conn->query($cat_sql);
     </div>
   </div>
 
-  <!-- SCROLL TO TOP -->
   <button id="scrollTopBtn" class="btn btn-secondary" title="Scroll to top" style="position:fixed;right:20px;bottom:20px;display:none;"><i class="fa-solid fa-arrow-up"></i></button>
 
 
 
-  <!-- ACHIEVEMENTS SECTION -->
 
   <section class="achievements py-5">
     <div class="container">
@@ -261,12 +240,10 @@ $cat_result = $conn->query($cat_sql);
   </section>
 
 
-  <!-- FOOTER -->
   <footer class="footer mt-5 pt-5 pb-3 bg-dark text-light">
     <div class="container">
       <div class="row gy-4">
 
-        <!-- Logo & Description -->
         <div class="col-md-4 text-center text-md-start">
           <a href="index.php" class="d-flex align-items-center mb-3 text-decoration-none text-light">
             <img src="assets/img/logo.svg" alt="logo" style="height:50px; margin-inline-end:10px;">
@@ -274,7 +251,6 @@ $cat_result = $conn->query($cat_sql);
           <p class="small mb-0"><?php echo htmlspecialchars($lang['footer_desc']); ?></p>
         </div>
 
-        <!-- Quick Links -->
         <div class="col-md-4 text-center">
           <h6 class="fw-bold mb-3"><?php echo htmlspecialchars($lang['footer_quick_links']); ?></h6>
           <ul class="list-unstyled">
@@ -285,7 +261,6 @@ $cat_result = $conn->query($cat_sql);
           </ul>
         </div>
 
-        <!-- Contact & Social -->
         <div class="col-md-4 text-center text-md-end">
           <h6 class="fw-bold mb-3"><?php echo htmlspecialchars($lang['footer_contact_title']); ?></h6>
           <p class="small mb-1">
@@ -310,7 +285,6 @@ $cat_result = $conn->query($cat_sql);
 
 
 
-  <!-- ADMIN LOGIN MODAL -->
   <div class="modal fade" id="adminModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <form class="modal-content" action="admin/login.php" method="post">
@@ -336,20 +310,17 @@ $cat_result = $conn->query($cat_sql);
     </div>
   </div>
 
-  <!-- SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
   <script src="assets/js/main.js"></script>
 
   <script>
-    // init AOS
     AOS.init({
       duration: 700,
       once: true
     });
 
-    // small: show/hide scroll button
     const scrollBtn = document.getElementById('scrollTopBtn');
     window.addEventListener('scroll', () => {
       scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
