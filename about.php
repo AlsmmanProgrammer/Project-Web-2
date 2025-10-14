@@ -74,7 +74,7 @@ $lang_link = $current_path . '?' . http_build_query($query);
         <div class="container">
             <div class="row align-items-center gy-4">
                 <div class="col-lg-6" data-aos="fade-right">
-                    <img src="assets/img/about.jpg" alt="about" class="img-fluid">
+                    <img src="assets/img/about.png" alt="about" class="img-fluid">
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
                     <h3 class="fw-bold mb-3"><?php echo htmlspecialchars($lang['about_vision']); ?></h3>
@@ -91,14 +91,14 @@ $lang_link = $current_path . '?' . http_build_query($query);
             <div class="row gy-4">
                 <?php
                 $team = [
-                    ["name" => "أحمد السمان", "role" => "المدير التنفيذي", "img" => "team1.jpg"],
-                    ["name" => "ليلى مراد", "role" => "مديرة الفعاليات", "img" => "team2.jpg"],
-                    ["name" => "محمد الخطيب", "role" => "مصمم واجهات", "img" => "team3.jpg"],
+                    ["name" => "أحمد السمان", "role" => "المدير التنفيذي", "img" => "team-1.jpg"],
+                    ["name" => "ليلى مراد", "role" => "مديرة الفعاليات", "img" => "team-2.jpg"],
+                    ["name" => "محمد الخطيب", "role" => "مصمم واجهات", "img" => "team-3.jpg"],
                 ];
                 foreach ($team as $member): ?>
                     <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="card team-card text-center border-0 shadow-sm">
-                            <img src="assets/img/<?php echo htmlspecialchars($member['img']); ?>" class="card-img-top" alt="Team" style="height:250px; object-fit:cover;">
+                            <img src="assets/img/team/<?php echo htmlspecialchars($member['img']); ?>" class="card-img-top" alt="Team" style="height:250px; object-fit:cover;">
                             <div class="card-body">
                                 <h5 class="card-title mb-1"><?php echo htmlspecialchars($member['name']); ?></h5>
                                 <p class="text-muted small mb-2"><?php echo htmlspecialchars($member['role']); ?></p>

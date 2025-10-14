@@ -106,7 +106,7 @@ $cat_result = $conn->query($cat_sql);
           <a href="events.php" class="btn btn-secondary btn-lg"><?php echo htmlspecialchars($lang['cta']); ?></a>
         </div>
         <div class="col-lg-6 text-center" data-aos="fade-left">
-          <img src="assets/img/hero.jpg" alt="hero" class="img-fluid rounded shadow" style="max-height:360px;object-fit:cover;">
+          <img src="assets/img/hero.png" alt="hero" class="img-fluid rounded shadow" style="max-height:360px;object-fit:cover;">
         </div>
       </div>
     </div>
