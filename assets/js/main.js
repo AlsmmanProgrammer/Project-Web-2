@@ -113,3 +113,5 @@ $(".filter-btn").on("click", function () {
     $(`.event-card[data-category="${category}"]`).show();
   }
 });
+
+

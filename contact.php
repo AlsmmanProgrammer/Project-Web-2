@@ -26,7 +26,7 @@ $lang_link = $current_path . '?' . http_build_query($query);
 
 <body class="light-mode">
 
-      <?php include "includes/navbar.php"; ?>
+    <?php include "includes/navbar.php"; ?>
 
 
     <section class="contact-hero text-center py-5">
@@ -87,7 +87,7 @@ $lang_link = $current_path . '?' . http_build_query($query);
         </div>
     </section>
 
-          <?php include "includes/footer.php"; ?>
+    <?php include "includes/footer.php"; ?>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

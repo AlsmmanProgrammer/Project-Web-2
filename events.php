@@ -48,7 +48,7 @@ $cat_result = $conn->query($cat_sql);
 
 <body class="light-mode">
 
-    <?php include "includes/navbar.php"; ?>
+  <?php include "includes/navbar.php"; ?>
 
 
   <section class="event-hero">
@@ -101,7 +101,7 @@ $cat_result = $conn->query($cat_sql);
     </div>
   </div>
 
-        <?php include "includes/footer.php"; ?>
+  <?php include "includes/footer.php"; ?>
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
