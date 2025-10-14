@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
   const body = document.body;
   const themeToggle = document.getElementById("themeToggle");
@@ -70,7 +69,6 @@ if (langToggle && langIcon) {
   }
 }
 
-
 AOS.init({
   duration: 700,
   once: true,
@@ -86,7 +84,6 @@ if (scrollBtn) {
   });
 }
 
-
 AOS.init({ duration: 700, once: true });
 
 document.getElementById("contactForm").addEventListener("submit", function (e) {
@@ -101,4 +98,18 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
     btn.disabled = false;
     btn.innerHTML = "Send";
   }, 1500);
+});
+
+AOS.init({duration: 700, once: true,});
+
+$(".filter-btn").on("click", function () {
+  const category = $(this).data("cat");
+  $(".filter-btn").removeClass("active");
+  $(this).addClass("active");
+  if (category === "all") {
+    $(".event-card").show();
+  } else {
+    $(".event-card").hide();
+    $(`.event-card[data-category="${category}"]`).show();
+  }
 });

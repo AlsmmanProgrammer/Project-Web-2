@@ -190,24 +190,6 @@ $cat_result = $conn->query($cat_sql);
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
   <script src="assets/js/main.js"></script>
-  <script>
-    AOS.init({
-      duration: 700,
-      once: true
-    });
-
-    $('.filter-btn').on('click', function() {
-      const category = $(this).data('cat');
-      $('.filter-btn').removeClass('active');
-      $(this).addClass('active');
-      if (category === 'all') {
-        $('.event-card').show();
-      } else {
-        $('.event-card').hide();
-        $(`.event-card[data-category="${category}"]`).show();
-      }
-    });
-  </script>
 </body>
 
 </html>
