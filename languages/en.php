@@ -65,5 +65,7 @@ $lang = [
   "achievements_cities" => "Cities Covered",
   "achievements_awards" => "Awards Won",
 
+  'details'  => 'Event Details',
+  'category' => 'Category',
 
 ];

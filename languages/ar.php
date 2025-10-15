@@ -62,6 +62,8 @@ $lang = [
   "achievements_cities" => "مدن حول العالم",
   "achievements_awards" => "جوائز حصلنا عليها",
 
+  'details'  => 'تفاصيل الفعالية',
+  'category' => 'التصنيف',
 
 
 ];

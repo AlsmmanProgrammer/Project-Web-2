@@ -1,117 +1,112 @@
+
 document.addEventListener("DOMContentLoaded", function () {
   const body = document.body;
   const themeToggle = document.getElementById("themeToggle");
   const themeIcon = document.getElementById("themeIcon");
 
+  // 🔆 تطبيق الوضع الحالي
   function applyTheme(theme) {
-    if (theme === "dark") {
-      body.classList.add("dark-mode");
-      body.classList.remove("light-mode");
-      if (themeIcon) themeIcon.className = "fa-solid fa-sun";
-    } else {
-      body.classList.add("light-mode");
-      body.classList.remove("dark-mode");
-      if (themeIcon) themeIcon.className = "fa-regular fa-moon";
+    body.classList.remove("light-mode", "dark-mode");
+    body.classList.add(theme === "dark" ? "dark-mode" : "light-mode");
+
+    if (themeIcon) {
+      themeIcon.className =
+        theme === "dark" ? "fa-solid fa-sun" : "fa-regular fa-moon";
     }
   }
 
+  // 🧠 تحميل الوضع من localStorage أو تحديد الافتراضي
   let theme = localStorage.getItem("theme") || "light";
   applyTheme(theme);
 
+  // 🌓 التبديل عند الضغط على الزر
   if (themeToggle) {
     themeToggle.addEventListener("click", () => {
       theme = theme === "light" ? "dark" : "light";
       localStorage.setItem("theme", theme);
       applyTheme(theme);
+
+      // ✨ إضافة تأثير ناعم عند التبديل
+      body.style.transition = "background-color 0.5s ease, color 0.5s ease";
     });
   }
 
+  // 🎯 الفلترة حسب التصنيف
   const filterBtns = document.querySelectorAll(".filter-btn");
   const eventCards = document.querySelectorAll(".event-card");
+
   filterBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       const cat = btn.getAttribute("data-cat");
-      if (cat === "all") {
-        eventCards.forEach((c) => (c.style.display = ""));
-      } else {
-        eventCards.forEach((c) => {
-          c.style.display =
-            c.getAttribute("data-category") === cat ? "" : "none";
-        });
-      }
+
+      filterBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      eventCards.forEach((card) => {
+        const match = cat === "all" || card.dataset.category === cat;
+        card.style.display = match ? "" : "none";
+      });
     });
   });
 
+  // 🔍 البحث عن الفعاليات
   const searchInput = document.getElementById("searchInput");
   if (searchInput) {
     searchInput.addEventListener("input", () => {
       const q = searchInput.value.trim().toLowerCase();
       eventCards.forEach((c) => {
-        const title = c.querySelector(".card-title")
-          ? c.querySelector(".card-title").innerText.toLowerCase()
-          : "";
-        const desc = c.querySelector(".card-text")
-          ? c.querySelector(".card-text").innerText.toLowerCase()
-          : "";
+        const title = c.querySelector(".card-title")?.innerText.toLowerCase() || "";
+        const desc = c.querySelector(".card-text")?.innerText.toLowerCase() || "";
         c.style.display = title.includes(q) || desc.includes(q) ? "" : "none";
       });
     });
   }
-});
 
-const langToggle = document.getElementById("langToggle");
-const langIcon = document.getElementById("langIcon");
-if (langToggle && langIcon) {
-  if (window.location.search.includes("lang=en")) {
-    langIcon.className = "fa-solid fa-language";
-  } else {
-    langIcon.className = "fa-solid fa-globe";
+  // 🌐 أيقونة اللغة
+  const langToggle = document.getElementById("langToggle");
+  const langIcon = document.getElementById("langIcon");
+  if (langToggle && langIcon) {
+    if (window.location.search.includes("lang=en")) {
+      langIcon.className = "fa-solid fa-language";
+    } else {
+      langIcon.className = "fa-solid fa-globe";
+    }
   }
-}
 
-AOS.init({
-  duration: 700,
-  once: true,
-});
+  // 🚀 AOS Animation
+  if (typeof AOS !== "undefined") {
+    AOS.init({
+      duration: 700,
+      once: true,
+    });
+  }
 
-const scrollBtn = document.getElementById("scrollTopBtn");
-if (scrollBtn) {
-  window.addEventListener("scroll", () => {
-    scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
-  });
-  scrollBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-}
+  // ⬆️ زر الصعود للأعلى
+  const scrollBtn = document.getElementById("scrollTopBtn");
+  if (scrollBtn) {
+    window.addEventListener("scroll", () => {
+      scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
 
-AOS.init({ duration: 700, once: true });
+  // 📩 نموذج التواصل
+  const contactForm = document.getElementById("contactForm");
+  if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const btn = this.querySelector("button");
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
 
-document.getElementById("contactForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-  const btn = this.querySelector("button");
-  btn.disabled = true;
-  btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
-
-  setTimeout(() => {
-    alert("✅ Message sent successfully!");
-    this.reset();
-    btn.disabled = false;
-    btn.innerHTML = "Send";
-  }, 1500);
-});
-
-AOS.init({duration: 700, once: true,});
-
-$(".filter-btn").on("click", function () {
-  const category = $(this).data("cat");
-  $(".filter-btn").removeClass("active");
-  $(this).addClass("active");
-  if (category === "all") {
-    $(".event-card").show();
-  } else {
-    $(".event-card").hide();
-    $(`.event-card[data-category="${category}"]`).show();
+      setTimeout(() => {
+        alert("✅ تم إرسال الرسالة بنجاح!");
+        this.reset();
+        btn.disabled = false;
+        btn.innerHTML = "إرسال";
+      }, 1500);
+    });
   }
 });
-
-
