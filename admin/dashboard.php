@@ -7,26 +7,22 @@ if (!isset($_SESSION["admin_id"])) {
     exit;
 }
 
-// جلب جميع التصنيفات الفريدة
 $categoriesResult = $conn->query("SELECT DISTINCT category FROM events ORDER BY category ASC");
 
 $search = "";
 $filterCategory = "";
 $whereClauses = [];
 
-// معالجة البحث النصي
 if (isset($_GET['search']) && $_GET['search'] !== "") {
     $search = $conn->real_escape_string($_GET['search']);
     $whereClauses[] = "(title LIKE '%$search%' OR location LIKE '%$search%')";
 }
 
-// معالجة فلترة التصنيف
 if (isset($_GET['category']) && $_GET['category'] !== "") {
     $filterCategory = $conn->real_escape_string($_GET['category']);
     $whereClauses[] = "category = '$filterCategory'";
 }
 
-// بناء الاستعلام
 $sql = "SELECT * FROM events";
 if (!empty($whereClauses)) {
     $sql .= " WHERE " . implode(" AND ", $whereClauses);
@@ -35,7 +31,6 @@ $sql .= " ORDER BY event_date DESC";
 
 $result = $conn->query($sql);
 
-// تقسيم أحدث 3 فعاليات والباقي
 $latestEvents = [];
 $otherEvents = [];
 if ($result->num_rows > 0) {
@@ -57,54 +52,14 @@ if ($result->num_rows > 0) {
     <title>لوحة التحكم - إدارة الفعاليات</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        body { font-family: 'Tajawal', sans-serif; background: #f5f7fb; display: flex; flex-direction: column; min-height: 100vh; margin:0; }
-        .sidebar { width: 250px; background: linear-gradient(135deg, #6a11cb, #2575fc); color: white; display: flex; flex-direction: column; padding: 25px 20px; position: fixed; top:0; bottom:0; right:0; z-index:1000; transition: 0.3s; }
-        .sidebar h4 { font-weight:bold; margin-bottom:40px; text-align:center; }
-        .sidebar a { color:white; text-decoration:none; padding:12px 15px; border-radius:8px; display:block; margin-bottom:10px; transition:0.3s; font-weight:500; }
-        .sidebar a:hover, .sidebar a.active { background: rgba(255,255,255,0.2); transform:translateX(-4px); }
-        .sidebar .logout { margin-top:auto; background: rgba(255,255,255,0.15); }
 
-        .main { flex:1; margin-right:250px; padding:40px; transition: margin-right 0.3s; }
-
-        .dashboard-header { text-align:center; margin-bottom:30px; }
-        .dashboard-header h3 { font-weight:bold; color:#333; }
-
-        .filters { max-width:600px; margin:0 auto 30px; display:flex; gap:10px; flex-wrap:wrap; justify-content:center; }
-
-        .cards-container { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:20px; margin-bottom:40px; }
-        .event-card { background:#fff; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,0.08); overflow:hidden; transition: transform 0.3s; display:flex; flex-direction:column; }
-        .event-card:hover { transform:translateY(-5px); }
-        .event-card img { width:100%; height:180px; object-fit:cover; }
-        .event-card .card-body { padding:15px; flex:1; }
-        .event-card h5 { font-weight:bold; color:#2575fc; }
-        .event-card p { margin-bottom:8px; color:#555; }
-        .event-card .badge { font-size:0.85rem; }
-        .action-btns a { margin:0 4px; transition:0.3s ease; }
-        .action-btns a:hover { transform:scale(1.1); }
-
-        .table-container { background:#fff; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,0.08); padding:20px; margin-bottom:40px; }
-        table thead { background:#2575fc; color:#fff; }
-        table th, table td { vertical-align:middle; }
-
-        .footer { text-align:center; padding:15px; color:#666; font-size:0.9rem; background:#f5f7fb; margin-top:auto; }
-
-        @media (max-width:992px) {
-            .sidebar { right:-250px; }
-            .sidebar.active { right:0; }
-            .main { margin-right:0; }
-            .toggle-btn { position:fixed; top:20px; right:20px; background:#2575fc; color:#fff; border:none; border-radius:8px; padding:8px 12px; z-index:1100; }
-        }
-    </style>
+    <link href="../assets/css/dash.css" rel="stylesheet">
 </head>
 <body>
 
-<div class="sidebar" id="sidebar">
-    <h4><i class="fa-solid fa-gear"></i> لوحة التحكم</h4>
-    <a href="dashboard.php" class="active"><i class="fa-solid fa-calendar-days me-2"></i> الفعاليات</a>
-    <a href="event_add.php"><i class="fa-solid fa-plus me-2"></i> إضافة فعالية</a>
-    <a href="logout.php" class="logout"><i class="fa-solid fa-right-from-bracket me-2"></i> تسجيل الخروج</a>
-</div>
+
+
+<?php include "../includes/sidebar.php"; ?>
 
 <button class="toggle-btn d-lg-none" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
 
@@ -189,10 +144,5 @@ if ($result->num_rows > 0) {
     © <?php echo date('Y'); ?> جميع الحقوق محفوظة | نظام إدارة الفعاليات
 </div>
 
-<script>
-    function toggleSidebar() {
-        document.getElementById("sidebar").classList.toggle("active");
-    }
-</script>
 </body>
 </html>
