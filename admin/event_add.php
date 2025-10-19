@@ -3,48 +3,49 @@ session_start();
 include "../database/db.php";
 
 if (!isset($_SESSION["admin_id"])) {
-    header("Location: login.php");
-    exit;
+  header("Location: login.php");
+  exit;
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $title = trim($_POST["title"]);
-    $description = trim($_POST["description"]);
-    $location = trim($_POST["location"]);
-    $category = trim($_POST["category"]);
-    $event_date = $_POST["event_date"];
+  $title = trim($_POST["title"]);
+  $description = trim($_POST["description"]);
+  $location = trim($_POST["location"]);
+  $category = trim($_POST["category"]);
+  $event_date = $_POST["event_date"];
 
-    $upload_dir = "../assets/img/events/";
-    if (!is_dir($upload_dir)) mkdir($upload_dir, 0777, true);
+  $upload_dir = "../assets/img/events/";
+  if (!is_dir($upload_dir)) mkdir($upload_dir, 0777, true);
 
-    $image = "";
-    if (!empty($_FILES["image"]["name"])) {
-        $image_name = time() . "_" . basename($_FILES["image"]["name"]);
-        $target_path = $upload_dir . $image_name;
-        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_path)) {
-            $image = $image_name;
-        }
+  $image = "";
+  if (!empty($_FILES["image"]["name"])) {
+    $image_name = time() . "_" . basename($_FILES["image"]["name"]);
+    $target_path = $upload_dir . $image_name;
+    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_path)) {
+      $image = $image_name;
     }
+  }
 
-    $sql = "INSERT INTO events (title, description, location, category, event_date, image)
+  $sql = "INSERT INTO events (title, description, location, category, event_date, image)
             VALUES (?, ?, ?, ?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssssss", $title, $description, $location, $category, $event_date, $image);
-    $stmt->execute();
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param("ssssss", $title, $description, $location, $category, $event_date, $image);
+  $stmt->execute();
 
-    header("Location: dashboard.php");
-    exit;
+  header("Location: dashboard.php");
+  exit;
 }
 ?>
 
 <!doctype html>
 <html lang="ar" dir="rtl">
+
 <head>
   <meta charset="utf-8">
   <title>إضافة فعالية جديدة</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-     <link href="../assets/css/dash.css" rel="stylesheet">
+  <link href="../assets/css/dash.css" rel="stylesheet">
 
 </head>
 
@@ -61,6 +62,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   <!-- Main Content -->
   <div class="main">
+
+    <nav aria-label="breadcrumb" class="mb-4">
+      <ol class="breadcrumb bg-white p-3 rounded-3 shadow-sm">
+        <li class="breadcrumb-item">
+          <a href="index.php" class="text-decoration-none text-primary">
+            <i class="fa-solid fa-house me-1"></i> لوحة التحكم
+          </a>
+          <span class="text-muted mx-1">/</span>
+        </li>
+        <li class="breadcrumb-item active text-dark fw-semibold" aria-current="page">
+          الفعاليات
+        </li>
+        <li class="active text-dark fw-semibold" aria-current="page">
+          إضافة فعالية
+        </li>
+      </ol>
+    </nav>
+
     <div class="form-container">
       <h3><i class="fa-solid fa-plus-circle text-primary"></i> إضافة فعالية جديدة</h3>
 
@@ -104,4 +123,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 </body>
+
 </html>
