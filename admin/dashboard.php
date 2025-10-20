@@ -105,9 +105,9 @@ $result = $conn->query($sql);
                     </form>
                 </div>
 
-                <div class="table-container">
-                    <table class="table table-bordered align-middle text-center">
-                        <thead class="table-primary">
+                <div class="table-responsive shadow-sm rounded-4 overflow-hidden mt-3">
+                    <table class="table align-middle text-center table-hover custom-table mb-0">
+                        <thead>
                             <tr>
                                 <th>#</th>
                                 <th>العنوان</th>
@@ -122,19 +122,29 @@ $result = $conn->query($sql);
                                 <?php while ($row = $result->fetch_assoc()): ?>
                                     <tr>
                                         <td><?php echo $row['id']; ?></td>
-                                        <td><?php echo htmlspecialchars($row['title']); ?></td>
+                                        <td class="fw-semibold text-primary"><?php echo htmlspecialchars($row['title']); ?></td>
                                         <td><?php echo htmlspecialchars($row['event_date']); ?></td>
                                         <td><?php echo htmlspecialchars($row['location']); ?></td>
-                                        <td><span class="badge bg-secondary"><?php echo htmlspecialchars($row['category']); ?></span></td>
+                                        <td>
+                                            <span class="badge  px-3 py-2" style="color:  #000000ff">
+                                                <?php echo htmlspecialchars($row['category']); ?>
+                                            </span>
+                                        </td>
                                         <td class="action-btns">
-                                            <a href="event_edit.php?id=<?php echo $row['id']; ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                                            <a href="event_delete.php?id=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('هل أنت متأكد من الحذف؟');"><i class="fa fa-trash"></i></a>
+
+                                            <a href="event_edit.php?id=<?php echo $row['id']; ?>" class="btn btn-warning btn-sm text-white">
+                                                <i class="fa fa-edit"></i>
+                                            </a>
+                                            <a href="event_delete.php?id=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm"
+                                                onclick="return confirm('هل أنت متأكد من الحذف؟');">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                 <?php endwhile; ?>
                             <?php else: ?>
                                 <tr>
-                                    <td colspan="6" class="text-muted">لا توجد فعاليات لعرضها.</td>
+                                    <td colspan="6" class="text-muted py-4">لا توجد فعاليات لعرضها.</td>
                                 </tr>
                             <?php endif; ?>
                         </tbody>

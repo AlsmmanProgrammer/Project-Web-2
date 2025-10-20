@@ -292,3 +292,12 @@ body.dark-mode .footer-bottom {
   transform: translateY(-6px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 }
+
+
+.filter-btn.active {
+  background-color: var(--bs-secondary);
+  color: #fff !important;
+  border-color: var(--bs-secondary);
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  transition: all 0.2s ease-in-out;
+}

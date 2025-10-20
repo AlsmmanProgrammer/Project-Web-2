@@ -102,9 +102,6 @@ $cat_result = $conn->query($cat_sql);
   <div class="container my-4" data-aos="fade-up">
     <div class="d-flex align-items-center justify-content-between mb-3">
       <h4><?php echo htmlspecialchars($lang['categories']); ?></h4>
-      <div>
-        <button class="btn btn-sm btn-outline-secondary filter-btn" data-cat="all">All</button>
-      </div>
     </div>
 
     <div class="d-flex gap-2 flex-wrap">
