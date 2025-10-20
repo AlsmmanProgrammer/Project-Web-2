@@ -77,10 +77,10 @@ $lang_link = $current_path . '?' . http_build_query($query);
   <?php include "includes/navbar.php"; ?>
 
   <!-- HERO -->
-  <section class="event-details-hero">
-    <div class="container">
-      <h1 class="fw-bold mb-3" data-aos="fade-up"><?php echo htmlspecialchars($event['title']); ?></h1>
-      <p class="lead text-muted" data-aos="fade-up" data-aos-delay="100">
+  <section class="hero about-hero py-5">
+    <div class="container text-center">
+         <h1 class="fw-bold mb-3" data-aos="fade-up"><?php echo htmlspecialchars($event['title']); ?></h1>
+      <p class="lead" data-aos="fade-up" data-aos-delay="100">
         <i class="fa-regular fa-calendar"></i> <?php echo htmlspecialchars($event['event_date']); ?> •
         <i class="fa-solid fa-location-dot"></i> <?php echo htmlspecialchars($event['location']); ?>
       </p>

@@ -21,6 +21,7 @@ $lang = [
   "nav_about" => "About",
   "nav_contact" => "Contact",
   "nav_login" => "Sign In",
+  "nav_events_des" => "Explore all upcoming events in your city",
 
 
   "footer_desc" => "Your gateway to explore the latest and greatest events in your city.",

@@ -26,12 +26,7 @@
                 <p class="small mb-1">
                     <i class="fa-regular fa-envelope me-2"></i> info@example.com
                 </p>
-                <div class="d-flex justify-content-center justify-content-md-end gap-3">
-                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                </div>
+                
             </div>
 
         </div>

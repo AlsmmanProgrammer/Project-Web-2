@@ -50,12 +50,13 @@ $cat_result = $conn->query($cat_sql);
 
   <?php include "includes/navbar.php"; ?>
 
-
-  <section class="event-hero">
-    <div class="container">
-      <h1 class="fw-bold mb-3" data-aos="fade-up"><?php echo htmlspecialchars($lang['nav_events']); ?></h1>
+  <section class="hero about-hero py-5">
+    <div class="container text-center">
+      <h1 class="fw-bold mb-3" data-aos="fade-up">
+        <?php echo htmlspecialchars($lang['nav_events']); ?>
+      </h1>
       <p class="lead" data-aos="fade-up" data-aos-delay="100">
-        <?php echo ($lang_code == 'ar') ? 'استكشف جميع الفعاليات القادمة في مدينتك' : 'Explore all upcoming events in your city'; ?>
+        <?php echo htmlspecialchars($lang['nav_events_des']); ?>
       </p>
     </div>
   </section>
