@@ -77,36 +77,41 @@ $lang_link = $current_path . '?' . http_build_query($query);
                         "name_ar" => "بشير السمان",
                         "name_en" => "Basheer Alsamman",
                         "role_en" => "Full Stack Developer",
+                        "id"=>  "243316",
                         "img" => "https://cdn-icons-png.flaticon.com/512/921/921071.png"
                     ],
                     [
                         "name_ar" => "ملاك جيرون",
                         "name_en" => "Malak Jiroun",
                         "role_en" => "Front-End Developer",
+                        "id"=>  "240474",
                         "img" => "https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
                     ],
                     [
                         "name_ar" => "آية عبد المولى",
                         "name_en" => "Aya Abdulmawla",
                         "role_en" => "Front-End Developer",
+                        "id"=>  "247117",
                         "img" => "https://cdn-icons-png.flaticon.com/512/4140/4140051.png"
                     ],
                     [
                         "name_ar" => "حلا خالد",
                         "name_en" => "Hala Khaled",
                         "role_en" => "Front-End Developer",
+                        "id"=>  "240523",
                         "img" => "https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
                     ],
                     [
                         "name_ar" => "راما الحلاق",
                         "name_en" => "Rama Alhallak",
                         "role_en" => "Front-End Developer",
+                        "id"=>  "251277",
                         "img" => "https://cdn-icons-png.flaticon.com/512/4140/4140051.png"
                     ],
                 ];
 
                 foreach ($team as $index => $member): ?>
-                    <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="<?php echo 100 * $index; ?>">
+                    <div class="col-sm-6 col-md-4 col-lg-4" data-aos="fade-up" data-aos-delay="<?php echo 100 * $index; ?>">
                         <div class="card team-card border-0 shadow-sm rounded-4 h-100 card-hover">
                             <div class="p-3 text-center">
                                 <img src="<?php echo htmlspecialchars($member['img']); ?>"
@@ -120,6 +125,9 @@ $lang_link = $current_path . '?' . http_build_query($query);
                                 </h5>
                                 <small class="text-muted d-block mb-2">
                                     <?php echo htmlspecialchars($member['name_ar']); ?>
+                                </small>
+                                <small class="text-muted d-block mb-2">
+                                    <?php echo htmlspecialchars($member['id']); ?>
                                 </small>
                                 <p class="text-secondary small mb-0">
                                     <?php echo htmlspecialchars($member['role_en']); ?>

@@ -55,7 +55,7 @@ $result = $conn->query($sql);
         <nav aria-label="breadcrumb" class="mb-4">
             <ol class="breadcrumb bg-white p-3 rounded-3 shadow-sm">
                 <li class="breadcrumb-item">
-                    <a href="index.php" class="text-decoration-none text-primary">
+                    <a href="dashboard.php" class="text-decoration-none text-primary">
                         <i class="fa-solid fa-house me-1"></i> لوحة التحكم
                     </a>
                     <span class="text-muted mx-1">/</span>

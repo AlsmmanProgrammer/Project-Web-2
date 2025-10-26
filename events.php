@@ -51,15 +51,15 @@ $cat_result = $conn->query($cat_sql);
   <?php include "includes/navbar.php"; ?>
 
   <section class="hero about-hero py-5">
-    <div class="container text-center">
-      <h1 class="fw-bold mb-3" data-aos="fade-up">
-        <?php echo htmlspecialchars($lang['nav_events']); ?>
-      </h1>
-      <p class="lead" data-aos="fade-up" data-aos-delay="100">
-        <?php echo htmlspecialchars($lang['nav_events_des']); ?>
-      </p>
-    </div>
-  </section>
+        <div class="container text-center">
+            <h1 class="fw-bold mb-3" data-aos="fade-up">
+                <?php echo htmlspecialchars($lang['nav_events']); ?>
+            </h1>
+            <p class="lead" data-aos="fade-up" data-aos-delay="100">
+                <?php echo htmlspecialchars($lang['nav_events_des']); ?>
+            </p>
+        </div>
+    </section>
 
   <div class="container my-4 text-center" data-aos="fade-up">
     <div class="d-flex flex-wrap justify-content-center gap-2">
